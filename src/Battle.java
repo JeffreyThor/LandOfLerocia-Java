@@ -37,12 +37,14 @@ public class Battle extends javax.swing.JFrame {
         characterGold.setText(Integer.toString(character.getGold()));
         characterLevel.setText(Integer.toString(character.getLevel()));
         characterMaxHealth.setText(Integer.toString(character.getMaxHealth()));
+        characterHealthBar.setValue(character.getHealth()*100/character.getMaxHealth());
         specialButton.setText(character.getSpecialAttackName());
         
         enemyTypeLabel.setText(enemy.getEnemyType());
         enemyLevel.setText(Integer.toString(enemy.getLevel()));
         enemyMaxHealth.setText(Integer.toString(enemy.getMaxHealth()));
         enemyCurrentHealth.setText(Integer.toString(enemy.getHealth()));
+        enemyHealthBar.setValue(enemy.getHealth()*100/enemy.getMaxHealth());
     }
 
     /**
@@ -74,6 +76,11 @@ public class Battle extends javax.swing.JFrame {
         characterCurrentHealth = new javax.swing.JLabel();
         splitCharacterHealth = new javax.swing.JLabel();
         characterGold = new javax.swing.JLabel();
+        enemyHealthBar = new javax.swing.JProgressBar();
+        characterHealthBar = new javax.swing.JProgressBar();
+        enemyResult = new javax.swing.JLabel();
+        characterResult = new javax.swing.JLabel();
+        characterSpecial = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,6 +98,11 @@ public class Battle extends javax.swing.JFrame {
         });
 
         specialButton.setText("Special");
+        specialButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                specialButtonActionPerformed(evt);
+            }
+        });
 
         inventoryButton.setText("Inventory");
 
@@ -102,19 +114,19 @@ public class Battle extends javax.swing.JFrame {
         });
 
         enemyLevelLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        enemyLevelLabel.setText("Level:");
+        enemyLevelLabel.setText("LEVEL");
 
         enemyHealthLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        enemyHealthLabel.setText("Health:");
+        enemyHealthLabel.setText("HEALTH");
 
         characterLevelLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        characterLevelLabel.setText("Level:");
+        characterLevelLabel.setText("LEVEL");
 
         characterHealthLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        characterHealthLabel.setText("Health:");
+        characterHealthLabel.setText("HEALTH");
 
         characterGoldLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        characterGoldLabel.setText("Gold:");
+        characterGoldLabel.setText("GOLD");
 
         enemyLevel.setText("level");
 
@@ -139,83 +151,116 @@ public class Battle extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(attackButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(inventoryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(enemyLevelLabel)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(characterLevel)
+                                .addGap(18, 18, 18)
+                                .addComponent(characterCurrentHealth)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(splitCharacterHealth)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(characterMaxHealth))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(characterLevelLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(characterLevel)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(enemyLevel)))
+                                .addComponent(characterHealthLabel)))
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(characterGoldLabel)
+                            .addComponent(characterGold)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(inventoryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(attackButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(5, 5, 5)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(enemyLevelLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(enemyHealthLabel))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(enemyCurrentHealth)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(splitEnemyHealth))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(enemyLevel)
+                                .addGap(119, 119, 119)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(enemyMaxHealth))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(escapeButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(specialButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)))
+                .addGap(30, 30, 30))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(characterNameLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(enemyTypeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(characterHealthBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(characterSpecial, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                            .addComponent(characterResult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(characterNameLabel)
-                        .addComponent(enemyTypeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(enemyHealthBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(characterHealthLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(characterCurrentHealth)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(splitCharacterHealth)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(characterMaxHealth)
-                        .addGap(92, 92, 92)
-                        .addComponent(characterGoldLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(characterGold))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(escapeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(specialButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(62, 62, 62))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(enemyHealthLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(enemyCurrentHealth)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(splitEnemyHealth)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(enemyMaxHealth))))
-                .addGap(29, 29, 29))
+                        .addComponent(enemyResult, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)))
+                .addGap(43, 43, 43))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(enemyTypeLabel)
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(enemyLevelLabel)
-                    .addComponent(enemyHealthLabel)
-                    .addComponent(enemyLevel)
-                    .addComponent(enemyCurrentHealth)
-                    .addComponent(splitEnemyHealth)
-                    .addComponent(enemyMaxHealth))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addComponent(characterNameLabel)
-                .addGap(14, 14, 14)
+                    .addComponent(enemyTypeLabel)
+                    .addComponent(characterNameLabel))
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(characterLevelLabel)
                     .addComponent(characterHealthLabel)
                     .addComponent(characterGoldLabel)
+                    .addComponent(enemyLevelLabel)
+                    .addComponent(enemyHealthLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(characterLevel)
-                    .addComponent(characterMaxHealth)
                     .addComponent(characterCurrentHealth)
                     .addComponent(splitCharacterHealth)
-                    .addComponent(characterGold))
-                .addGap(47, 47, 47)
+                    .addComponent(characterMaxHealth)
+                    .addComponent(characterGold)
+                    .addComponent(enemyLevel)
+                    .addComponent(enemyCurrentHealth)
+                    .addComponent(splitEnemyHealth)
+                    .addComponent(enemyMaxHealth))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(enemyHealthBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(characterHealthBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(enemyResult)
+                    .addComponent(characterResult))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(characterSpecial)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(attackButton)
                     .addComponent(specialButton))
-                .addGap(18, 18, 18)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inventoryButton)
                     .addComponent(escapeButton))
@@ -234,9 +279,18 @@ public class Battle extends javax.swing.JFrame {
 
     private void attackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attackButtonActionPerformed
         // TODO add your handling code here:
-        enemy.setHealth(enemy.getHealth()-character.primaryAttack());
+        int damage = character.primaryAttack();
+        int gold;
+        enemy.setHealth(enemy.getHealth()-damage);
+        enemyResult.setText("-" + Integer.toString(damage));
+        characterSpecial.setText("");
         if(enemy.getHealth() <= 0){
+            if(character.getCharacterType() == "looter")
+                gold = enemy.getLevel()*80;
+            else
+                gold = enemy.getLevel()*40;
             character.setExperience((int) (character.getExperience()+Math.sqrt(enemy.getLevel()*1000)));
+            character.setGold(character.getGold()+gold);
             this.setVisible(false);
             village.setVisible(true);
             if(character.getExperience() >= character.getLevel()*20){
@@ -248,16 +302,64 @@ public class Battle extends javax.swing.JFrame {
             village.updateStatLabels();
             return;
         }
-        character.setHealth(character.getHealth()-enemy.primaryAttack());
+        damage = enemy.primaryAttack();
+        character.setHealth(character.getHealth()-damage);
+        characterResult.setText("-" + Integer.toString(damage));
         if(character.getHealth() <= 0){
             this.setVisible(false);
             village.setVisible(true);
             character.setGold(character.getGold()/2);
+            character.setHealth(character.getMaxHealth());
             village.updateStatLabels();
             return;
         }
         updateBattleStats();
     }//GEN-LAST:event_attackButtonActionPerformed
+
+    private void specialButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specialButtonActionPerformed
+        // TODO add your handling code here:
+        int damage = character.specialAttack();
+        int gold;
+        enemy.setHealth(enemy.getHealth()-damage);
+        if(character.getCharacterType() == "warrior")
+            characterSpecial.setText("Power Attack!");
+        else if(character.getCharacterType() == "wizard")
+            characterSpecial.setText("Healed!");
+        else if(character.getCharacterType() == "looter")
+            characterSpecial.setText("Quick Hit!");
+        else
+            enemyResult.setText("-" + Integer.toString(damage));
+        if(enemy.getHealth() <= 0){
+            if(character.getCharacterType() == "looter")
+                gold = enemy.getLevel()*80;
+            else
+                gold = enemy.getLevel()*40;
+            character.setExperience((int) (character.getExperience()+Math.sqrt(enemy.getLevel()*1000)));
+            character.setGold(character.getGold()+gold);
+            this.setVisible(false);
+            village.setVisible(true);
+            if(character.getExperience() >= character.getLevel()*20){
+                character.setLevel(character.getLevel()+1);
+                character.setMaxHealth(character.getMaxHealth()+character.getLevel()*20);
+                character.setHealth(character.getMaxHealth());
+                character.setExperience(0);
+            }
+            village.updateStatLabels();
+            return;
+        }
+        damage = enemy.primaryAttack();
+        character.setHealth(character.getHealth()-damage);
+        characterResult.setText("-" + Integer.toString(damage));
+        if(character.getHealth() <= 0){
+            this.setVisible(false);
+            village.setVisible(true);
+            character.setGold(character.getGold()/2);
+            character.setHealth(character.getMaxHealth());
+            village.updateStatLabels();
+            return;
+        }
+        updateBattleStats();
+    }//GEN-LAST:event_specialButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -300,16 +402,21 @@ public class Battle extends javax.swing.JFrame {
     private javax.swing.JLabel characterCurrentHealth;
     private javax.swing.JLabel characterGold;
     private javax.swing.JLabel characterGoldLabel;
+    private javax.swing.JProgressBar characterHealthBar;
     private javax.swing.JLabel characterHealthLabel;
     private javax.swing.JLabel characterLevel;
     private javax.swing.JLabel characterLevelLabel;
     private javax.swing.JLabel characterMaxHealth;
     private javax.swing.JLabel characterNameLabel;
+    private javax.swing.JLabel characterResult;
+    private javax.swing.JLabel characterSpecial;
     private javax.swing.JLabel enemyCurrentHealth;
+    private javax.swing.JProgressBar enemyHealthBar;
     private javax.swing.JLabel enemyHealthLabel;
     private javax.swing.JLabel enemyLevel;
     private javax.swing.JLabel enemyLevelLabel;
     private javax.swing.JLabel enemyMaxHealth;
+    private javax.swing.JLabel enemyResult;
     private javax.swing.JLabel enemyTypeLabel;
     private javax.swing.JButton escapeButton;
     private javax.swing.JButton inventoryButton;

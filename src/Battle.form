@@ -24,103 +24,149 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="attackButton" max="32767" attributes="0"/>
-                      <Component id="inventoryButton" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="enemyLevelLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                              <Component id="characterLevel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="characterCurrentHealth" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="splitCharacterHealth" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="characterMaxHealth" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="102" attributes="0">
                               <Component id="characterLevelLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="characterLevel" min="-2" max="-2" attributes="0"/>
+                              <Component id="characterHealthLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="enemyLevel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="characterGoldLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="characterGold" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="inventoryButton" max="32767" attributes="0"/>
+                          <Component id="attackButton" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="92" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="enemyLevelLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="enemyHealthLabel" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="enemyCurrentHealth" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Component id="splitEnemyHealth" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="enemyLevel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="enemyMaxHealth" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="escapeButton" alignment="0" max="32767" attributes="0"/>
+                      <Component id="specialButton" alignment="0" pref="103" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+              <Component id="characterNameLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="enemyTypeLabel" min="-2" pref="74" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="characterHealthBar" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="characterSpecial" pref="83" max="32767" attributes="0"/>
+                          <Component id="characterResult" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                      <Component id="characterNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="enemyTypeLabel" min="-2" pref="74" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="enemyHealthBar" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="characterHealthLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="characterCurrentHealth" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="splitCharacterHealth" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="characterMaxHealth" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                      <Component id="characterGoldLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="characterGold" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="escapeButton" min="-2" pref="81" max="-2" attributes="0"/>
-                              <Component id="specialButton" min="-2" pref="81" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="enemyHealthLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="enemyCurrentHealth" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="splitEnemyHealth" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="enemyMaxHealth" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="enemyResult" min="-2" pref="81" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-              <Component id="enemyTypeLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="enemyTypeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="characterNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="characterLevelLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="characterHealthLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="characterGoldLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="enemyLevelLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="enemyHealthLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="characterLevel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="characterCurrentHealth" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="splitCharacterHealth" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="characterMaxHealth" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="characterGold" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="enemyLevel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="enemyCurrentHealth" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="splitEnemyHealth" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="enemyMaxHealth" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="46" max="32767" attributes="0"/>
-              <Component id="characterNameLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="characterLevelLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="characterHealthLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="characterGoldLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="characterLevel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="characterMaxHealth" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="characterCurrentHealth" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="splitCharacterHealth" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="characterGold" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="enemyHealthBar" min="-2" max="-2" attributes="0"/>
+                  <Component id="characterHealthBar" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="enemyResult" min="-2" max="-2" attributes="0"/>
+                  <Component id="characterResult" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
+              <Component id="characterSpecial" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="attackButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="specialButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="inventoryButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="escapeButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="escapeButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
           </Group>
@@ -156,6 +202,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Special"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="specialButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="inventoryButton">
       <Properties>
@@ -175,7 +224,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Level:"/>
+        <Property name="text" type="java.lang.String" value="LEVEL"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="enemyHealthLabel">
@@ -183,7 +232,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Health:"/>
+        <Property name="text" type="java.lang.String" value="HEALTH"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="characterLevelLabel">
@@ -191,7 +240,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Level:"/>
+        <Property name="text" type="java.lang.String" value="LEVEL"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="characterHealthLabel">
@@ -199,7 +248,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Health:"/>
+        <Property name="text" type="java.lang.String" value="HEALTH"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="characterGoldLabel">
@@ -207,7 +256,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Gold:"/>
+        <Property name="text" type="java.lang.String" value="GOLD"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="enemyLevel">
@@ -254,6 +303,16 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="gold"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JProgressBar" name="enemyHealthBar">
+    </Component>
+    <Component class="javax.swing.JProgressBar" name="characterHealthBar">
+    </Component>
+    <Component class="javax.swing.JLabel" name="enemyResult">
+    </Component>
+    <Component class="javax.swing.JLabel" name="characterResult">
+    </Component>
+    <Component class="javax.swing.JLabel" name="characterSpecial">
     </Component>
   </SubComponents>
 </Form>
