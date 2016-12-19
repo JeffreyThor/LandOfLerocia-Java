@@ -81,8 +81,8 @@
                       <Component id="enemyMaxHealth" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="specialButton" alignment="0" pref="104" max="32767" attributes="0"/>
                       <Component id="escapeButton" alignment="0" max="32767" attributes="0"/>
-                      <Component id="specialButton" alignment="0" pref="103" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
@@ -210,6 +210,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Inventory"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inventoryButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="escapeButton">
       <Properties>

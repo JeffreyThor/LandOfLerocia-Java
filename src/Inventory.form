@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="strongestPotionLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="itemLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="potionLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="strongPotionLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="strongerPotionLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="numPotions" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="numStrongPotions" min="-2" max="-2" attributes="0"/>
+                          <Component id="numStrongerPotions" min="-2" max="-2" attributes="0"/>
+                          <Component id="numStrongestPotions" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="75" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="usePotion" min="-2" max="-2" attributes="0"/>
+                          <Component id="useStrongPotion" min="-2" max="-2" attributes="0"/>
+                          <Component id="useStrongerPotion" min="-2" max="-2" attributes="0"/>
+                          <Component id="useStrongestPotion" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="ownedLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="exitButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="itemLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ownedLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="potionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="usePotion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="numPotions" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="strongPotionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="useStrongPotion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="numStrongPotions" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="strongerPotionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="useStrongerPotion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="numStrongerPotions" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="strongestPotionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="useStrongestPotion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="numStrongestPotions" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="23" max="32767" attributes="0"/>
+              <Component id="exitButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="potionLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Potion"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="strongPotionLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Strong Potion"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="strongerPotionLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Stronger Potion"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="strongestPotionLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Strongest potion"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="usePotion">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Use"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="usePotionActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="useStrongPotion">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Use"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="useStrongPotionActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="useStrongerPotion">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Use"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="useStrongerPotionActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="useStrongestPotion">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Use"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="useStrongestPotionActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="numPotions">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="numStrongPotions">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="numStrongerPotions">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="numStrongestPotions">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="itemLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ITEM"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="ownedLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="OWNED"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="exitButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Exit"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exitButtonActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>

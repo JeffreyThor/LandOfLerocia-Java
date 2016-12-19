@@ -27,6 +27,7 @@ public class Character {
     protected int missPoint = 20;
     protected double damageMultiplier = 1.8;
     protected Random rand = new Random();
+    protected int[] inventory = new int[4];
     
     //Default Character constructor
     public Character() {
@@ -50,6 +51,10 @@ public class Character {
     public Character(String name, String characterType) {
         this.name = name;
         this.characterType = characterType;
+        inventory[0] = 1; // potion
+        inventory[1] = 0; // strong potion
+        inventory[2] = 0; // stronger potion
+        inventory[3] = 0; // strongest potion
     }
     
     //Gets character's name.
@@ -167,5 +172,18 @@ public class Character {
     
     public int specialAttack(){
 	return 0;
+    }
+    
+    void addItem(String item){
+        if(item == "potion")
+            inventory[0] += 1;
+        else if(item == "strong potion")
+            inventory[1] += 1;
+        else if(item == "stronger potion")
+            inventory[2] += 1;
+        else if(item == "strongest potion")
+            inventory[3] += 1;
+        else
+            System.out.println("Item input error");
     }
 }

@@ -105,6 +105,11 @@ public class Battle extends javax.swing.JFrame {
         });
 
         inventoryButton.setText("Inventory");
+        inventoryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inventoryButtonActionPerformed(evt);
+            }
+        });
 
         escapeButton.setText("Escape");
         escapeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -195,8 +200,8 @@ public class Battle extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(enemyMaxHealth))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(escapeButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(specialButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)))
+                        .addComponent(specialButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                        .addComponent(escapeButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(30, 30, 30))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(68, 68, 68)
@@ -360,6 +365,16 @@ public class Battle extends javax.swing.JFrame {
         }
         updateBattleStats();
     }//GEN-LAST:event_specialButtonActionPerformed
+
+    private void inventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButtonActionPerformed
+        // TODO add your handling code here:
+        Inventory inventory = new Inventory();
+        inventory.sendCharacter(character);
+        inventory.sendBattle(this);
+        inventory.updateInventory();
+        this.setVisible(false);
+        inventory.setVisible(true);
+    }//GEN-LAST:event_inventoryButtonActionPerformed
 
     /**
      * @param args the command line arguments
