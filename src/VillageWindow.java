@@ -48,6 +48,9 @@ public class VillageWindow extends javax.swing.JFrame {
             mountainButton.setEnabled(false);
         else
             mountainButton.setEnabled(true);
+        if(character.getStageNum() == 7){
+            pathButton.setEnabled(false);
+        }
     }
 
     /**

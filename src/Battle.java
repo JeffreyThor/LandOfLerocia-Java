@@ -98,6 +98,13 @@ public class Battle extends javax.swing.JFrame {
         }
         else if("kingJack".equals(enemy.getEnemyType())){
             //Player has won
+            character.nextStage();
+            story.sendVillage(village);
+            story.sendCharacter(character);
+            story.playStory();
+            this.setVisible(false);
+            story.setVisible(true);
+            return;
         }
         if("looter".equals(character.getCharacterType()))
             gold = enemy.getLevel()*80;
