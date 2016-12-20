@@ -17,15 +17,15 @@ public class StoryMode extends javax.swing.JFrame {
     public StoryMode() {
         initComponents();
     }
-    
+    // Allows story to receive the instance of village to be used
     public void sendVillage(VillageWindow village){
         this.village = village;
     }
-    
+    // Allows story to receive the instance of character to be sued
     public void sendCharacter(Character character){
         this.character = character;
     }
-    
+    // Runs the story scene the player has reached
     public void playStory(){
         if(character.getStageNum() == 1){
             storyStage.setText("Stage 1");

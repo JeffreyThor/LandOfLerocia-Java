@@ -17,15 +17,15 @@ public class Shop extends javax.swing.JFrame {
     public Shop() {
         initComponents();
     }
-    
+    // Allows shop to receive the instance of character to be used
     public void sendCharacter(Character character){
         this.character = character;
     }
-    
+    // Allows shop to receive the instance of village to be used
     public void sendVillage(VillageWindow village){
         this.village = village;
     }
-    
+    // Updates shop GUI information (mostly visible player information)
     public void updateShop(){
         characterGold.setText(Integer.toString(character.getGold()));
         numPotions.setText(Integer.toString(character.inventory[0]));

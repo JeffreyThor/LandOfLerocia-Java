@@ -18,18 +18,19 @@ public class Inventory extends javax.swing.JFrame {
     public Inventory() {
         initComponents();
     }
-    
+    // Allows inventory to receive the instance of character to be used
     public void sendCharacter(Character character){
         this.character = character;
     }
-    
+    // Allows inventory to receive the instance of village to be used
     public void sendVillage(VillageWindow village){
         this.village = village;
     }
+    // Allows inventory to receive the instance of battle to be used
     public void sendBattle(Battle battle){
         this.battle = battle;
     }
-    
+    // Updates the players inventory GUI information. Called when a purchase is made or inventory is opened
     public void updateInventory(){
         numPotions.setText(Integer.toString(character.inventory[0]));
         numStrongPotions.setText(Integer.toString(character.inventory[1]));

@@ -19,23 +19,23 @@ public class Battle extends javax.swing.JFrame {
     public Battle() {
         initComponents();
     }
-    
+    // Allows battle to receive the instance of character to be used
     public void sendCharacter(Character character){
         this.character = character;
     }
-    
+    // Allows battle to receive the instance of enemy to be used
     public void sendEnemy(Enemy enemy){
         this.enemy = enemy;
     }
-    
+    // Allows battle to receive the instance of village to be used
     public void sendVillage(VillageWindow village){
         this.village = village;
     }
-    
+    // Allows battle to receive the instance of story to be used
     public void sendStory(StoryMode story){
         this.story = story;
     }
-    
+    // Updates visible battle stats in the GUI
     public void updateBattleStats(){
         characterNameLabel.setText(character.getName());
         characterCurrentHealth.setText(Integer.toString(character.getHealth()));
@@ -51,7 +51,7 @@ public class Battle extends javax.swing.JFrame {
         enemyCurrentHealth.setText(Integer.toString(enemy.getHealth()));
         enemyHealthBar.setValue(enemy.getHealth()*100/enemy.getMaxHealth());
     }
-    
+    // Called when character (player) loses the battle
     public void characterDefeated(){
         this.setVisible(false);
         village.setVisible(true);
@@ -59,9 +59,10 @@ public class Battle extends javax.swing.JFrame {
         character.setHealth(character.getMaxHealth());
         village.updateStatLabels();
     }
-    
+    // Called when enemy loses the battle
     public void enemyDefeated(){
         int gold;
+        // Used to check if battle was part of the path (story mode) and if so continues accordingly
         if(enemy.getEnemyType().matches("jack|hunter|knight2|orc|guardian3")){
             character.nextStage();
             story.sendVillage(village);

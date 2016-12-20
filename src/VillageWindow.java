@@ -24,11 +24,11 @@ public class VillageWindow extends javax.swing.JFrame {
     public VillageWindow() {
         initComponents();
     }
-    
+    // Allows village to receive the instance of character to be used
     public void sendCharacter(Character character){
         this.character = character;
     }
-    
+    // Updates the player stats and other information in the window
     public void updateStatLabels(){
         characterCurrentHealth.setText(Integer.toString(character.getHealth()));
         characterGold.setText(Integer.toString(character.getGold()));

@@ -91,9 +91,11 @@ public class GameOfLegends extends javax.swing.JFrame {
         // TODO add your handling code here:
         Character character;
         String fileName = "savedGame.txt";
+        // temporary variables to store information read form save file
         String name, type, specialName;
         int experience, level, maxHealth, health, gold, stageNum;
         int inventory[] = new int[4];
+        // Skeleton for file input system from http://stackoverflow.com/questions/4716503/reading-a-plain-text-file-in-java
         try {
             FileReader fileReader = 
                 new FileReader(fileName);
