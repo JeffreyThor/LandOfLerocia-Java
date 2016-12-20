@@ -1,12 +1,12 @@
-Ma Wizerd
-wizard
+Player
+warrior
 0
-100
-5000
-5000
-350
-heal
-6
+1
+50
+50
+500
+power-attack
+1
 1
 0
 0
