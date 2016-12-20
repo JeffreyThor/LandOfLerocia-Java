@@ -19,7 +19,6 @@ public class Guardian extends Enemy{
         super(enemyType, level);
         health = 5000;
 	maxHealth = 5000;
-	alive = true;
 	criticalPoint = 6;
 	missPoint = 8;
 	damageMultiplier = 2.6;

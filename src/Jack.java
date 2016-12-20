@@ -19,7 +19,6 @@ public class Jack extends Enemy{
         super(enemyType, level);
         health = 150;
         maxHealth = 150;
-        alive = true;
         criticalPoint = 10;
         missPoint = 10;
         damageMultiplier = 1;

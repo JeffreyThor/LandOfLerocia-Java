@@ -1,5 +1,8 @@
 
-import javax.swing.JOptionPane;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -11,12 +14,12 @@ import javax.swing.JOptionPane;
  *
  * @author Jeffrey Thor
  */
-public class NewGameForm extends javax.swing.JFrame {
+public class GameOfLegends extends javax.swing.JFrame {
     
     /**
      * Creates new form DisplayForm
      */
-    public NewGameForm() {
+    public GameOfLegends() {
         initComponents();
     }
 
@@ -86,6 +89,61 @@ public class NewGameForm extends javax.swing.JFrame {
 
     private void loadGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadGameButtonActionPerformed
         // TODO add your handling code here:
+        Character character;
+        String fileName = "savedGame.txt";
+        String name, type, specialName;
+        int experience, level, maxHealth, health, gold, stageNum;
+        int inventory[] = new int[4];
+        try {
+            FileReader fileReader = 
+                new FileReader(fileName);
+
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            
+            name = bufferedReader.readLine();
+            type = bufferedReader.readLine();
+            experience = Integer.parseInt(bufferedReader.readLine());
+            level = Integer.parseInt(bufferedReader.readLine());
+            maxHealth = Integer.parseInt(bufferedReader.readLine());
+            health = Integer.parseInt(bufferedReader.readLine());
+            gold = Integer.parseInt(bufferedReader.readLine());
+            specialName = bufferedReader.readLine();
+            stageNum = Integer.parseInt(bufferedReader.readLine());
+            for(int i = 0; i < 4; i++){
+                inventory[i] = Integer.parseInt(bufferedReader.readLine());
+            }
+            if("warrior".equals(type)){
+                character = new Warrior(name, type);
+            }
+            else if("wizard".equals(type)){
+                character = new Wizard(name, type);
+            }
+            else if("looter".equals(type)){
+                character = new Looter(name, type);
+            }
+            else {
+                System.err.println("Character type load error");
+                character = new Character();
+            }
+            character.setStats(type, name, experience, level, health, maxHealth, gold, stageNum);
+            for(int i = 0; i < 4; i++){
+                character.inventory[i] = inventory[i];
+            }
+            VillageWindow village = new VillageWindow();
+            village.sendCharacter(character);
+            village.updateStatLabels();
+            village.setVisible(true);
+            this.setVisible(false);
+            
+            bufferedReader.close();         
+        }
+        catch(FileNotFoundException ex) {
+            System.err.println("Unable to open file '" + fileName + "'");                
+        }
+        catch(IOException ex) {
+            System.err.println("Error reading file '" + fileName + "'");
+        }
     }//GEN-LAST:event_loadGameButtonActionPerformed
 
     private void newGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameButtonActionPerformed
@@ -111,21 +169,23 @@ public class NewGameForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewGameForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GameOfLegends.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewGameForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GameOfLegends.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewGameForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GameOfLegends.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewGameForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GameOfLegends.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewGameForm().setVisible(true);
+                new GameOfLegends().setVisible(true);
             }
         });
     }

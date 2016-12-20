@@ -25,7 +25,6 @@ public class Wizard extends Character{
 	health = 30;
 	maxHealth = 30;
 	gold = 500;
-	alive = true;
 	criticalPoint = 12;
 	missPoint = 12;
 	damageMultiplier = 1.5;

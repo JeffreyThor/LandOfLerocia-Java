@@ -35,6 +35,8 @@ public class Inventory extends javax.swing.JFrame {
         numStrongPotions.setText(Integer.toString(character.inventory[1]));
         numStrongerPotions.setText(Integer.toString(character.inventory[2]));
         numStrongestPotions.setText(Integer.toString(character.inventory[3]));
+        characterHealth.setText(Integer.toString(character.getHealth()));
+        characterMaxHealth.setText(Integer.toString(character.getMaxHealth()));
     }
 
     /**
@@ -61,6 +63,10 @@ public class Inventory extends javax.swing.JFrame {
         itemLabel = new javax.swing.JLabel();
         ownedLabel = new javax.swing.JLabel();
         exitButton = new javax.swing.JButton();
+        healthLabel = new javax.swing.JLabel();
+        characterHealth = new javax.swing.JLabel();
+        characterMaxHealth = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -119,6 +125,10 @@ public class Inventory extends javax.swing.JFrame {
             }
         });
 
+        healthLabel.setText("HEALTH:");
+
+        jLabel1.setText("/");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -139,7 +149,7 @@ public class Inventory extends javax.swing.JFrame {
                             .addComponent(numStrongPotions)
                             .addComponent(numStrongerPotions)
                             .addComponent(numStrongestPotions))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(usePotion)
                             .addComponent(useStrongPotion)
@@ -147,8 +157,16 @@ public class Inventory extends javax.swing.JFrame {
                             .addComponent(useStrongestPotion))
                         .addGap(59, 59, 59))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(ownedLabel)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(healthLabel)
+                            .addComponent(ownedLabel))
+                        .addGap(18, 18, 18)
+                        .addComponent(characterHealth)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(characterMaxHealth)
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(exitButton)
@@ -181,8 +199,14 @@ public class Inventory extends javax.swing.JFrame {
                     .addComponent(strongestPotionLabel)
                     .addComponent(useStrongestPotion)
                     .addComponent(numStrongestPotions))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addComponent(exitButton)
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(characterHealth, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(exitButton)
+                        .addComponent(healthLabel)
+                        .addComponent(characterMaxHealth, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1)))
                 .addContainerGap())
         );
 
@@ -236,7 +260,7 @@ public class Inventory extends javax.swing.JFrame {
 
     private void useStrongestPotionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useStrongestPotionActionPerformed
         // TODO add your handling code here:
-        if(character.inventory[2] > 0 && character.getHealth() < character.getMaxHealth()){
+        if(character.inventory[3] > 0 && character.getHealth() < character.getMaxHealth()){
             character.setHealth(character.getHealth() + character.getMaxHealth()/2);
             character.inventory[3] -= 1;
             if(character.getHealth() > character.getMaxHealth())
@@ -294,8 +318,12 @@ public class Inventory extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel characterHealth;
+    private javax.swing.JLabel characterMaxHealth;
     private javax.swing.JButton exitButton;
+    private javax.swing.JLabel healthLabel;
     private javax.swing.JLabel itemLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel numPotions;
     private javax.swing.JLabel numStrongPotions;
     private javax.swing.JLabel numStrongerPotions;

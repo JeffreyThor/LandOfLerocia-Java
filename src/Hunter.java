@@ -19,7 +19,6 @@ public class Hunter extends Enemy{
         super(enemyType, level);
         health = 490;
 	maxHealth = 490;
-	alive = true;
 	criticalPoint = 3;
 	missPoint = 24;
 	damageMultiplier = 1.4;

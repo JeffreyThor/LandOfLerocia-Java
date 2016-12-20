@@ -19,7 +19,6 @@ public class KingJack extends Enemy{
         super(enemyType, level);
         health = 20000;
 	maxHealth = 20000;
-	alive = true;
 	criticalPoint = 3;
 	missPoint = 18;
 	damageMultiplier = 6;

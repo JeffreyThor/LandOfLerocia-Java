@@ -19,7 +19,6 @@ public class Thug extends Enemy{
         super(enemyType, level);
         health = 350;
         maxHealth = 350;
-        alive = true;
         criticalPoint = 16;
         missPoint = 12;
         damageMultiplier = 1;

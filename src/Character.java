@@ -21,13 +21,13 @@ public class Character {
     protected int maxHealth;
     protected int health;
     protected int gold;
-    protected boolean alive;
     protected String specialAttackName;
-    protected int criticalPoint = 20;
-    protected int missPoint = 20;
-    protected double damageMultiplier = 1.8;
+    protected int criticalPoint;
+    protected int missPoint;
+    protected double damageMultiplier;
     protected Random rand = new Random();
     protected int[] inventory = new int[4];
+    protected int stageNum;
     
     //Default Character constructor
     public Character() {
@@ -38,7 +38,6 @@ public class Character {
         health = 0;
         maxHealth = 0;
         gold = 0;
-        alive = false;
         specialAttackName = "";
     }
     
@@ -55,6 +54,7 @@ public class Character {
         inventory[1] = 0; // strong potion
         inventory[2] = 0; // stronger potion
         inventory[3] = 0; // strongest potion
+        stageNum = 1;
     }
     
     //Gets character's name.
@@ -85,13 +85,13 @@ public class Character {
     public int getGold(){
 	return gold;
     }
-    //Gets character's state of life.
-    public boolean getAlive(){
-	return alive;
-    }
     //Gets character's special attack name
     public String getSpecialAttackName(){
 	return specialAttackName;
+    }
+    //Get character's stage number (for story mode aka the path)
+    public int getStageNum(){
+        return stageNum;
     }
     
     /**
@@ -104,9 +104,8 @@ public class Character {
      * @param health The character's health.
      * @param maxHealth The character's max health.
      * @param gold The character's gold.
-     * @param alive The character's state of life.
      */
-    void setStats(String characterType, String name, int experience, int level, int health, int maxHealth, int gold, boolean alive){
+    void setStats(String characterType, String name, int experience, int level, int health, int maxHealth, int gold, int stageNum){
         this.characterType = characterType;
         this.name = name;
         this.experience = experience;
@@ -114,7 +113,7 @@ public class Character {
         this.health = health;
         this.maxHealth = maxHealth;
         this.gold = gold;
-        this.alive = alive;
+        this.stageNum = stageNum;
     }
 
     //Sets character's type.
@@ -145,9 +144,9 @@ public class Character {
     void setGold(int gold){
         this.gold = gold;
     }
-    //Sets character's state of life.
-    void setAlive(boolean alive){
-        this.alive = alive;
+    //Advances to next stage
+    void nextStage(){
+        this.stageNum += 1;
     }
     
     /**
@@ -175,15 +174,15 @@ public class Character {
     }
     
     void addItem(String item){
-        if(item == "potion")
+        if("potion".equals(item))
             inventory[0] += 1;
-        else if(item == "strong potion")
+        else if("strong potion".equals(item))
             inventory[1] += 1;
-        else if(item == "stronger potion")
+        else if("stronger potion".equals(item))
             inventory[2] += 1;
-        else if(item == "strongest potion")
+        else if("strongest potion".equals(item))
             inventory[3] += 1;
         else
-            System.out.println("Item input error");
+            System.err.println("Item input error");
     }
 }

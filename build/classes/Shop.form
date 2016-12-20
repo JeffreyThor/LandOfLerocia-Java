@@ -68,35 +68,43 @@
                   <Component id="leaveShop" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="goldLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="characterGold" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="characterGold" min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
               <Component id="ownedLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="potion" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="buyPotion" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="numPotions" alignment="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="potion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buyPotion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="strongPotion" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="buyStrongPotion" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="numStrongPotions" alignment="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="strongPotion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buyStrongPotion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="strongerPotion" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="buyStrongerPotion" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="numStrongerPotions" alignment="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="strongerPotion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buyStrongerPotion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="strongestPotion" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="buyStrongestPotion" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="numStrongestPotions" alignment="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="strongestPotion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buyStrongestPotion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>

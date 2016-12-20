@@ -19,7 +19,6 @@ public class Knight extends Enemy{
         super(enemyType, level);
         health = level * level * level;
 	maxHealth = level * level * level;
-	alive = true;
 	criticalPoint = 8;
 	missPoint = 10;
 	damageMultiplier = 2.0;

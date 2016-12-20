@@ -19,7 +19,6 @@ public class Wolf extends Enemy{
         super(enemyType, level);
         health = level*level*15;
 	maxHealth = level*level*15;
-	alive = true;
 	criticalPoint = 5;
 	missPoint = 16;
 	damageMultiplier = 1.8;

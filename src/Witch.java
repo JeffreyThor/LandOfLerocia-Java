@@ -19,7 +19,6 @@ public class Witch extends Enemy{
         super(enemyType, level);
         health = level*level*12;
 	maxHealth = level*level*12;
-	alive = true;
 	criticalPoint = 24;
 	missPoint = 2;
 	damageMultiplier = 2.6;

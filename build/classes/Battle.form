@@ -80,10 +80,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="enemyMaxHealth" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="specialButton" alignment="0" pref="104" max="32767" attributes="0"/>
-                      <Component id="escapeButton" alignment="0" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="specialButton" alignment="0" max="32767" attributes="0"/>
+                  <Component id="escapeButton" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
           </Group>
@@ -156,7 +154,7 @@
                   <Component id="enemyResult" min="-2" max="-2" attributes="0"/>
                   <Component id="characterResult" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="34" max="32767" attributes="0"/>
+              <EmptySpace pref="27" max="32767" attributes="0"/>
               <Component id="characterSpecial" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -177,7 +175,7 @@
     <Component class="javax.swing.JLabel" name="enemyTypeLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="0"/>
+          <Font name="Tahoma" size="24" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Enemy"/>
       </Properties>
@@ -185,7 +183,7 @@
     <Component class="javax.swing.JLabel" name="characterNameLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="0"/>
+          <Font name="Tahoma" size="24" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Character"/>
       </Properties>

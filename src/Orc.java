@@ -19,7 +19,6 @@ public class Orc extends Enemy{
         super(enemyType, level);
         health = 3000;
 	maxHealth = 3000;
-	alive = true;
 	criticalPoint = 10;
 	missPoint = 10;
 	damageMultiplier = 2.4;

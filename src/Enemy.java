@@ -17,7 +17,6 @@ public class Enemy {
     protected int level;
     protected int health;
     protected int maxHealth;
-    protected boolean alive;
     protected int criticalPoint;
     protected int missPoint;
     protected double damageMultiplier;
@@ -29,7 +28,6 @@ public class Enemy {
 	level = 0;
 	health = 0;
 	maxHealth = 0;
-	alive = false;
     }
     
     /**
@@ -59,10 +57,6 @@ public class Enemy {
     int getMaxHealth() {
         return maxHealth;
     }
-    //Gets enemy's state of life.
-    boolean getAlive() {
-        return alive;
-    }
     //Sets enemy's level.
     void setLevel(int level){
         this.level = level;
@@ -70,10 +64,6 @@ public class Enemy {
     //Sets enemy's health.
     void setHealth(int health){
         this.health = health;
-    }
-    //Sets enemy's state of life.
-    void setAlive(boolean alive){
-        this.alive = alive;
     }
     
     /**

@@ -25,7 +25,6 @@ public class Looter extends Character{
 	health = 30;
 	maxHealth = 30;
 	gold = 1000;
-	alive = true;
 	criticalPoint = 16;
 	missPoint = 16;
 	damageMultiplier = 1.5;

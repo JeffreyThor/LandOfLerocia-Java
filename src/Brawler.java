@@ -19,7 +19,6 @@ public class Brawler extends Enemy{
         super(enemyType, level);
         health = 420;
         maxHealth = 420;
-        alive = true;
         criticalPoint = 16;
         missPoint = 14;
         damageMultiplier = 1;

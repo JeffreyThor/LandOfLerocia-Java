@@ -19,7 +19,6 @@ public class Ghost extends Enemy{
         super(enemyType, level);
         health = level*level;
 	maxHealth = level*level;
-	alive = true;
 	criticalPoint = 24;
 	missPoint = 3;
 	damageMultiplier = 12;

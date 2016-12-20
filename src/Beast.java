@@ -19,7 +19,6 @@ public class Beast extends Enemy{
         super(enemyType, level);
         health = level*level*10;
 	maxHealth = level*level*10;
-	alive = true;
 	criticalPoint = 12;
 	missPoint = 12;
 	damageMultiplier = 1.2;

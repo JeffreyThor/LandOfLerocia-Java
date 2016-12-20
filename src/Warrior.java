@@ -25,7 +25,6 @@ public class Warrior extends Character{
 	health = 50;
 	maxHealth = 50;
 	gold = 500;
-	alive = true;
 	criticalPoint = 20;
 	missPoint = 20;
 	damageMultiplier = 1.8;

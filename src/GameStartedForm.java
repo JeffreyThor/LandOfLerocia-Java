@@ -154,7 +154,7 @@ public class GameStartedForm extends javax.swing.JFrame {
             village.setVisible(true);
             this.setVisible(false);
         } catch(Exception e){
-            System.err.println("Empty name field");
+            System.err.println("Name entry error");
             JOptionPane.showMessageDialog(null, "Name must contain 3-12 characters.", "alert", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_warriorSelectButtonActionPerformed

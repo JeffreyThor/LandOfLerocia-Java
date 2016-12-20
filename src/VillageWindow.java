@@ -1,4 +1,7 @@
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import static java.lang.Integer.MAX_VALUE;
 import java.util.Random;
 
@@ -92,6 +95,11 @@ public class VillageWindow extends javax.swing.JFrame {
         });
 
         pathButton.setText("Path");
+        pathButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pathButtonActionPerformed(evt);
+            }
+        });
 
         inventoryButton.setText("Inventory");
         inventoryButton.addActionListener(new java.awt.event.ActionListener() {
@@ -136,6 +144,11 @@ public class VillageWindow extends javax.swing.JFrame {
         });
 
         saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
 
         quitButton.setText("Quit");
         quitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -431,6 +444,40 @@ public class VillageWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_quitButtonActionPerformed
+
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        // TODO add your handling code here:
+        try {
+        BufferedWriter fileOut = new BufferedWriter(new FileWriter("savedGame.txt"));
+            fileOut.write(character.getName()+"\n");
+            fileOut.write(character.getCharacterType()+"\n");
+            fileOut.write(character.getExperience()+"\n");
+            fileOut.write(character.getLevel()+"\n");
+            fileOut.write(character.getMaxHealth()+"\n");
+            fileOut.write(character.getHealth()+"\n");
+            fileOut.write(character.getGold()+"\n");
+            fileOut.write(character.getSpecialAttackName()+"\n");
+            fileOut.write(character.getStageNum()+"\n");
+            for(int i = 0; i < 4; i++){
+                fileOut.write(character.inventory[i]+"\n");
+            }
+//            fileOut.write(character.inventory[0]+"\n");
+//            fileOut.write(character.inventory[1]+"\n");
+//            fileOut.write(character.inventory[2]+"\n");
+//            fileOut.write(character.inventory[3]+"\n");
+            fileOut.close();
+        } catch (IOException e) {}
+    }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void pathButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pathButtonActionPerformed
+        // TODO add your handling code here:
+        StoryMode story = new StoryMode();
+        story.sendVillage(this);
+        story.sendCharacter(character);
+        story.playStory();
+        this.setVisible(false);
+        story.setVisible(true);
+    }//GEN-LAST:event_pathButtonActionPerformed
 
     /**
      * @param args the command line arguments

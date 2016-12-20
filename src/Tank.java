@@ -19,7 +19,6 @@ public class Tank extends Enemy{
         super(enemyType, level);
         health = level*level*16;
 	maxHealth = level*level*16;
-	alive = true;
 	criticalPoint = 20;
 	missPoint = 20;
 	damageMultiplier = .8;

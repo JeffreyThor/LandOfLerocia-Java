@@ -12,6 +12,7 @@ public class Battle extends javax.swing.JFrame {
     private Character character;
     private Enemy enemy;
     private VillageWindow village;
+    private StoryMode story;
     /**
      * Creates new form River
      */
@@ -31,6 +32,10 @@ public class Battle extends javax.swing.JFrame {
         this.village = village;
     }
     
+    public void sendStory(StoryMode story){
+        this.story = story;
+    }
+    
     public void updateBattleStats(){
         characterNameLabel.setText(character.getName());
         characterCurrentHealth.setText(Integer.toString(character.getHealth()));
@@ -45,6 +50,70 @@ public class Battle extends javax.swing.JFrame {
         enemyMaxHealth.setText(Integer.toString(enemy.getMaxHealth()));
         enemyCurrentHealth.setText(Integer.toString(enemy.getHealth()));
         enemyHealthBar.setValue(enemy.getHealth()*100/enemy.getMaxHealth());
+    }
+    
+    public void characterDefeated(){
+        this.setVisible(false);
+        village.setVisible(true);
+        character.setGold(character.getGold()/2);
+        character.setHealth(character.getMaxHealth());
+        village.updateStatLabels();
+    }
+    
+    public void enemyDefeated(){
+        int gold;
+        if(enemy.getEnemyType().matches("jack|hunter|knight2|orc|guardian3")){
+            character.nextStage();
+            story.sendVillage(village);
+            story.sendCharacter(character);
+            story.playStory();
+            this.setVisible(false);
+            story.setVisible(true);
+            return;
+        }
+        else if("thug".equals(enemy.getEnemyType())){
+            this.enemy = new Brawler("brawler", 6);
+            updateBattleStats();
+            return;
+        }
+        else if("brawler".equals(enemy.getEnemyType())){
+            this.enemy = new Hunter("hunter", 7);
+            updateBattleStats();
+            return;
+        }
+        else if("knight1".equals(enemy.getEnemyType())){
+            this.enemy = new Knight("knight2", 11);
+            updateBattleStats();
+            return;
+        }
+        else if("guardian1".equals(enemy.getEnemyType())){
+            this.enemy = new Guardian("guardian2", 20);
+            updateBattleStats();
+            return;
+        }
+        else if("guardian2".equals(enemy.getEnemyType())){
+            this.enemy = new Guardian("guardian3", 20);
+            updateBattleStats();
+            return;
+        }
+        else if("kingJack".equals(enemy.getEnemyType())){
+            //Player has won
+        }
+        if("looter".equals(character.getCharacterType()))
+            gold = enemy.getLevel()*80;
+        else
+            gold = enemy.getLevel()*40;
+        character.setExperience((int) (character.getExperience()+Math.sqrt(enemy.getLevel()*1000)));
+        character.setGold(character.getGold()+gold);
+        this.setVisible(false);
+        village.setVisible(true);
+        if(character.getExperience() >= character.getLevel()*20){
+            character.setLevel(character.getLevel()+1);
+            character.setMaxHealth(character.getMaxHealth()+character.getLevel()*20);
+            character.setHealth(character.getMaxHealth());
+            character.setExperience(0);
+        }
+        village.updateStatLabels();
     }
 
     /**
@@ -84,10 +153,10 @@ public class Battle extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        enemyTypeLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        enemyTypeLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         enemyTypeLabel.setText("Enemy");
 
-        characterNameLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        characterNameLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         characterNameLabel.setText("Character");
 
         attackButton.setText("Attack");
@@ -259,7 +328,7 @@ public class Battle extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(enemyResult)
                     .addComponent(characterResult))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(characterSpecial)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -285,37 +354,24 @@ public class Battle extends javax.swing.JFrame {
     private void attackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attackButtonActionPerformed
         // TODO add your handling code here:
         int damage = character.primaryAttack();
-        int gold;
         enemy.setHealth(enemy.getHealth()-damage);
-        enemyResult.setText("-" + Integer.toString(damage));
+        if(damage == 0)
+            enemyResult.setText("Miss!");
+        else
+            enemyResult.setText("-" + Integer.toString(damage));
         characterSpecial.setText("");
         if(enemy.getHealth() <= 0){
-            if(character.getCharacterType() == "looter")
-                gold = enemy.getLevel()*80;
-            else
-                gold = enemy.getLevel()*40;
-            character.setExperience((int) (character.getExperience()+Math.sqrt(enemy.getLevel()*1000)));
-            character.setGold(character.getGold()+gold);
-            this.setVisible(false);
-            village.setVisible(true);
-            if(character.getExperience() >= character.getLevel()*20){
-                character.setLevel(character.getLevel()+1);
-                character.setMaxHealth(character.getMaxHealth()+character.getLevel()*20);
-                character.setHealth(character.getMaxHealth());
-                character.setExperience(0);
-            }
-            village.updateStatLabels();
+            enemyDefeated();
             return;
         }
         damage = enemy.primaryAttack();
         character.setHealth(character.getHealth()-damage);
-        characterResult.setText("-" + Integer.toString(damage));
+        if(damage == 0)
+            characterResult.setText("Miss!");
+        else
+            characterResult.setText("-" + Integer.toString(damage));
         if(character.getHealth() <= 0){
-            this.setVisible(false);
-            village.setVisible(true);
-            character.setGold(character.getGold()/2);
-            character.setHealth(character.getMaxHealth());
-            village.updateStatLabels();
+            characterDefeated();
             return;
         }
         updateBattleStats();
@@ -323,44 +379,31 @@ public class Battle extends javax.swing.JFrame {
 
     private void specialButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specialButtonActionPerformed
         // TODO add your handling code here:
+        int tmpHealth = character.getHealth();
         int damage = character.specialAttack();
         int gold;
         enemy.setHealth(enemy.getHealth()-damage);
-        if(character.getCharacterType() == "warrior")
+        enemyResult.setText("-" + Integer.toString(damage));
+        if("warrior".equals(character.getCharacterType()))
             characterSpecial.setText("Power Attack!");
-        else if(character.getCharacterType() == "wizard")
-            characterSpecial.setText("Healed!");
-        else if(character.getCharacterType() == "looter")
+        else if("wizard".equals(character.getCharacterType()))
+            if(character.getHealth() == tmpHealth)
+                characterSpecial.setText("Heal Failed!");
+            else
+                characterSpecial.setText("Healed!");
+        else if("looter".equals(character.getCharacterType()))
             characterSpecial.setText("Quick Hit!");
         else
             enemyResult.setText("-" + Integer.toString(damage));
         if(enemy.getHealth() <= 0){
-            if(character.getCharacterType() == "looter")
-                gold = enemy.getLevel()*80;
-            else
-                gold = enemy.getLevel()*40;
-            character.setExperience((int) (character.getExperience()+Math.sqrt(enemy.getLevel()*1000)));
-            character.setGold(character.getGold()+gold);
-            this.setVisible(false);
-            village.setVisible(true);
-            if(character.getExperience() >= character.getLevel()*20){
-                character.setLevel(character.getLevel()+1);
-                character.setMaxHealth(character.getMaxHealth()+character.getLevel()*20);
-                character.setHealth(character.getMaxHealth());
-                character.setExperience(0);
-            }
-            village.updateStatLabels();
+            enemyDefeated();
             return;
         }
         damage = enemy.primaryAttack();
         character.setHealth(character.getHealth()-damage);
         characterResult.setText("-" + Integer.toString(damage));
         if(character.getHealth() <= 0){
-            this.setVisible(false);
-            village.setVisible(true);
-            character.setGold(character.getGold()/2);
-            character.setHealth(character.getMaxHealth());
-            village.updateStatLabels();
+            characterDefeated();
             return;
         }
         updateBattleStats();

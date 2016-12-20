@@ -19,7 +19,6 @@ public class Brute extends Enemy{
         super(enemyType, level);
         health = level*level*18;
 	maxHealth = level*level*18;
-	alive = true;
 	criticalPoint = 16;
 	missPoint = 20;
 	damageMultiplier = 1.6;
